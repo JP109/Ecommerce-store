@@ -1,0 +1,293 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.6;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1,
+h2,
+h5,
+h3,
+p{
+    margin: 0;
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 90em;
+}
+
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: .5em 1.25em;
+    margin: .2em;
+    background: var(--clr_accent,#000000);
+    color: var(--clr_text,#ffffff);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    border-radius: .25em;
+    transition: 
+    transform 250ms ease-in-out,
+    opacity 175ms linear;
+
+    &:hover,
+    &:focus{
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+    
+    &.btn_nav{
+        background: var(--clr_accent,);
+    }
+}
+
+.header_title{
+    //font-size: 3rem;
+    font-size: clamp(2.5rem,calc(5vw+1rem),4rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.section_title{
+    text-align: center;
+    font-size: clamp(2rem,calc(5vw+1rem),3rem);
+    line-height: 1;
+    color: #000000;
+    margin-top: 2em;
+    margin-bottom: 5rem;
+}
+
+.hide{ 
+    overflow: hidden;
+}
+
+.slideUp{
+    animation: slideUp 2s ease;
+}
+
+nav{
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(1, 42, 119);
+    z-index: 1;
+}
+
+.hero{
+    color:white;
+    text-align: left;
+    padding: 15em 0;
+    background: black;
+    @supports(background-blend-mode:soft-light){
+        background: url(shoe-6.png),
+            linear-gradient(rgb(1, 42, 119),rgb(1, 1, 58));
+        background-blend-mode: soft-light;
+        
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+    //background-image: url(pexels-photo-3822777-removebg-preview.png);
+    //background-size: cover;
+
+    p{
+        animation: slideUp 3s ease;
+        margin: 10px;
+    }
+    a{
+        animation: slideUp 4s ease;
+    }
+    
+}
+
+.featured{
+    background: white;
+    position: relative;
+    .container{
+        max-width: 500px;        
+        margin: auto;
+        
+    }
+
+    &_item {
+        display: block;
+        position: relative;
+        transform: scale(.85);
+        transition: transform 250ms ease-in-out;
+        text-decoration: none;
+        color: #333;
+        text-align: center;
+        line-height: 1.2;
+    
+    
+    
+        &:hover,
+        &:focus {
+          transform: scale(1);
+    
+          .featured_details {
+            opacity: 1;
+            text-shadow: 0 0 2em rgba(#fff, 1)
+          }
+        }
+    
+        &::after {
+          content: '';
+          position: absolute;
+          top: 10%;
+          left: 10%;
+          padding: 75% 75% 0 0;
+          border-radius: 50%;
+          background: #2193b0;
+          z-index: -1;
+        }
+      }
+
+
+    &_details{
+        opacity: 0;
+        transition: opacity 250ms linear;
+        span{
+            display: block;
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+    }
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color:black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+.prev{
+    left: 70px;
+}
+
+  /* Position the "next button" to the right */
+.next {
+    right: 70px;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+   // 0%{
+    //    transform: translateY(180px);
+    //}
+    //100%{
+    //    transform: translateY(0);
+    //}
+  }
+
+
+.product{
+
+    .grid_items{
+        background: white;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 50vh 50vh;
+    }
+
+    &_item{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: rgb(240, 233, 233);
+        margin: 10px;
+    }
+
+    &_image{
+        max-width: 250px;
+    }
+
+    a{
+        margin-bottom: 5px;
+    }
+    .btn{
+        padding: 0.25em,0.65em;
+        background-color:rgb(207, 181, 181);
+    }
+
+}
+
+footer{
+
+    background-color:  rgb(240, 233, 233);
+
+    .footer_flex{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+    p{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+}
+
+@keyframes slideUp{
+    0%{
+        transform: translateY(180px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
