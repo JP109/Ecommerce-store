@@ -84,15 +84,40 @@ p {
 
 nav {
   width: 100%;
-  position: fixed;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  float: left;
+  display: block;
   background-color: #012a77;
   z-index: 1;
+}
+
+nav .icon {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  nav a:not(:first-child) {
+    display: none;
+  }
+  nav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media (max-width: 800px) {
+  nav .topnav.responsive {
+    position: relative;
+  }
+  nav .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  nav .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
 .hero {
@@ -122,6 +147,17 @@ nav {
 .hero a {
   -webkit-animation: slideUp 4s ease;
           animation: slideUp 4s ease;
+}
+
+.hero i {
+  padding: 10px;
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    background-position: left;
+  }
 }
 
 .featured {
@@ -298,6 +334,20 @@ nav {
   background-color: #cfb5b5;
 }
 
+@media (max-width: 900px) {
+  .product .grid_items {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 450px) {
+  .product .grid_items {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
 footer {
   background-color: #f0e9e9;
 }
@@ -319,9 +369,22 @@ footer p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 15px;
+}
+
+footer span {
+  padding-left: 15px;
+}
+
+footer .btn {
+  background-color: transparent;
+}
+
+footer i {
+  color: black;
 }
 
 @-webkit-keyframes slideUp {
